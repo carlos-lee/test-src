@@ -1,4 +1,4 @@
 NAME := golang-http
 MAIN_GO := main.go
 build:
-	go build -tags netgo -o bin/$(NAME) $(MAIN_GO)
+	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o bin/$(NAME) $(MAIN_GO)
